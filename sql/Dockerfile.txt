@@ -4,10 +4,10 @@ FROM mysql/mysql-server:latest
 ENV MYSQL_DATABASE csc468
 
 
-COPY cattle.csv /docker-entrypoint-initdb.d/
+COPY cattle.csv .
 
 
-COPY init.sql /docker-entrypoint-initdb.d/
+COPY init.sql .
 
 
 ENV MYSQL_ROOT_PASSWORD 123456
