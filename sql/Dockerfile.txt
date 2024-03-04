@@ -1,0 +1,13 @@
+FROM mysql/mysql-server:latest
+
+
+ENV MYSQL_DATABASE csc468
+
+
+COPY cattle.csv /docker-entrypoint-initdb.d/
+
+
+COPY init.sql /docker-entrypoint-initdb.d/
+
+
+ENV MYSQL_ROOT_PASSWORD sown.GLOVE
