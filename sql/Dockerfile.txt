@@ -10,4 +10,4 @@ COPY cattle.csv /docker-entrypoint-initdb.d/
 COPY init.sql /docker-entrypoint-initdb.d/
 
 
-ENV MYSQL_ROOT_PASSWORD sown.GLOVE
+ENV MYSQL_ROOT_PASSWORD 123456
