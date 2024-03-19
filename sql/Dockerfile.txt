@@ -7,9 +7,9 @@ RUN wget https://raw.githubusercontent.com/HaolunZhang1/CSC468-WCU/blob/docker/s
 
 RUN apt-get update && apt-get install -y wget
 
-COPY cattle.csv .
+COPY cattle.csv /
 
 
-COPY init.sql .
+COPY ./table.sql /docker-entrypoint-initdb.d/
 
-ENV MYSQL_ROOT_PASSWORD 123456
+
