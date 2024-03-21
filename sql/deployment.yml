@@ -2,28 +2,23 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mysql
+  labels:
+    role: app
 spec:
-  replicas: 2
+  replicas:1
   selector:
     matchLabels:
-      role: mysql
+      role: app
   template:
     metadata:
       labels:
-        role: mysql
+        role: app
     spec:
       containers:
-      - name: mysql
-        image: mysql:latest
+      - name: app
+        image: hz1006837/mysql:mysql_image
         resources:
           requests:
             cpu: 10m
-        env:
-        - name: MYSQL_ROOT_PASSWORD
-          value: mysql
-        - name: MYSQL_PORT
-          value: "3306"
-        - name: MYSQL_USER
-          value: username
-        - name: MYSQL_PASSWORD
-          value: password
+        ports:
+        - containerPort: 3306
