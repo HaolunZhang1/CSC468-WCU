@@ -19,7 +19,7 @@ spec:
         image: mysql:mysql_image
         resources:
           requests:
-            cpu: "10m"
+            cpu: 10m
         ports:
         - containerPort: 3306
         env:
