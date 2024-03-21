@@ -1,22 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-deployment
-  labels:
-    role: app
+  name: mysql
 spec:
   replicas: 2
   selector:
     matchLabels:
-      role: app
+      role: mysql
   template:
     metadata:
       labels:
-        role: app
+        role: mysql
     spec:
       containers:
-      - name: app
-        image: DOCKER_USER/DOCKER_APP:BUILD_NUMBER
+      - name: mysql
+        image: mysql:latest
         resources:
           requests:
             cpu: 10m
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: mysql
+        - name: MYSQL_PORT
+          value: "3306"
+        - name: MYSQL_USER
+          value: username
+        - name: MYSQL_PASSWORD
+          value: password
