@@ -4,7 +4,9 @@ metadata:
   name: mysql
 spec:
   selector:
-    role: mysql
+    role: app
   ports:
-    - port: 3306
-  type: ClusterIP 
+    - protocol: TCP
+      port: 3306
+      nodePort:32010
+  type: NodePort
