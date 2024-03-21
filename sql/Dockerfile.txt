@@ -1,0 +1,15 @@
+FROM mysql/mysql-server:latest
+
+
+ENV MYSQL_DATABASE csc468
+
+RUN wget https://raw.githubusercontent.com/HaolunZhang1/CSC468-WCU/blob/docker/sql/cattle.csv -P /app/
+
+RUN apt-get update && apt-get install -y wget
+
+COPY cattle.csv /
+
+
+COPY ./table.sql /docker-entrypoint-initdb.d/
+
+
